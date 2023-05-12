@@ -1,0 +1,24 @@
+{
+  "name": "problems",
+  "version": "1.0.0",
+  "description": "Solutions to some problems",
+  "type": "commonjs",
+  "scripts": {
+    "test": "vitest --run --reporter verbose",
+    "test:watch": "vitest",
+    "start": "http-server -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zaelgohary/problems.git"
+  },
+  "author": "Zainab Elgohary",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zaelgohary/problems/issues"
+  },
+  "homepage": "https://github.com/zaelgohary/problems#readme",
+  "dependencies": {
+    "vitest": "^0.31.0"
+  }
+}
