@@ -11,16 +11,12 @@
 // N is an integer within the range [1..2,147,483,647].
 
 function getMaxBinaryGap(N: number): number {
-  const binary = N.toString(2);
-  if (N >= 1 && N <= 2147483647) {
-    const binaryArr = binary.split('1').filter((a) => a != '');
-    if (binary.startsWith('0')) binaryArr.shift();
-    if (binary.endsWith('0')) binaryArr.pop();
-    if (binaryArr.length === 0) return 0;
-    const lengths = binaryArr.map((a) => a.length);
-    return Math.max(...lengths);
-  }
-  return 0;
+  if(N < 1 || N > 2147483647) return 0;
+  let bin = N.toString(2);
+  bin = bin.replace(/0+$/,'').replace(/^0+/,'');
+  let binArr = bin.split('1');
+  binArr.filter(Boolean);
+  return Math.max(...binArr.map((b) => b.length));
 }
 
-console.log(getMaxBinaryGap(1041));
+console.log(getMaxBinaryGap(32));

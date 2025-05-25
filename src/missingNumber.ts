@@ -1,16 +1,15 @@
+import { inRange } from './helpers';
+
 function findMissingNum(A: number[]): number {
   const length = A.length;
   let missing = 1
   const max = length + 1;
   const hasDuplicates = new Set(A).size !== length;
 
-  const between = (n: number, min: number, max: number) => {
-    return n >= min && n <= max;
-  };
 
-  if (between(length, 1, 100000) &&
+  if (inRange(length, 1, 100000) &&
     !hasDuplicates &&
-    between(missing, 1, max)
+    inRange(missing, 1, max)
   ) {
     if (!A.includes(max)) {
       return max
