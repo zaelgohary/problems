@@ -10,29 +10,13 @@
 
 // N is an integer within the range [1..2,147,483,647].
 
-function solution(N: number): number {
-  const bin = (N >>> 0).toString(2)
-  const length = bin.length
-  let zeros = 0
-  const gaps: number[] = []
-  let hasOne = false
-  
-  if (N >= 1 && N < 2147483647) {
-    for (let i = 0; i < length; i++) {
-      if (+bin[i] === 1) {
-        if (!hasOne) {
-          hasOne = true;
-          continue;
-        }
-        gaps.push(zeros)
-        zeros = 0;
-        continue;
-      }
-      zeros++
-    }
-  }
-
-  return !gaps.length ? 0 : Math.max(...gaps);
+function getMaxBinaryGap(N: number): number {
+  if(N < 1 || N > 2147483647) return 0;
+  let bin = N.toString(2);
+  bin = bin.replace(/0+$/,'').replace(/^0+/,'');
+  let binArr = bin.split('1');
+  binArr.filter(Boolean);
+  return Math.max(...binArr.map((b) => b.length));
 }
 
-console.log(solution(20));
+console.log(getMaxBinaryGap(32));
